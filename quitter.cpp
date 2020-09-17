@@ -5,7 +5,8 @@
 
 Quitter::Quitter(): QObject(nullptr)
 {
-    connect(this, &Quitter::start, this, &Quitter::onStart);
+    connect(this, &Quitter::start, this, &Quitter::onStart,
+        Qt::QueuedConnection);
     emit start();
 }
 
