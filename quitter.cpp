@@ -2,12 +2,11 @@
 
 #include <QCoreApplication>
 #include <QDebug>
+#include <QTimer>
 
 Quitter::Quitter(): QObject(nullptr)
 {
-    connect(this, &Quitter::start, this, &Quitter::onStart,
-        Qt::QueuedConnection);
-    emit start();
+    QTimer::singleShot(0, [this]() { onStart(); });
 }
 
 void Quitter::onStart()
