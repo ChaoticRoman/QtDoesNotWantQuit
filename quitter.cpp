@@ -6,7 +6,7 @@
 
 Quitter::Quitter(): QObject(nullptr)
 {
-    QTimer::singleShot(0, [this]() { onStart(); });
+    QTimer::singleShot(0, this, &Quitter::onStart);
 }
 
 void Quitter::onStart()
